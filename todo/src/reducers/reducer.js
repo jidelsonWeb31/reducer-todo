@@ -1,9 +1,12 @@
-
-
-// export const initialState = {
+export const initialState = {
     
- 
-//   };
+todos: [{
+  item: 'Learn about reducers',
+  completed: false,
+  id: 3892987589,
+}]
+  
+  };
 
   export const reducer = (state, action) => {
     switch (action.type) {
@@ -14,7 +17,12 @@
           todos: [...state.todos, {text: action.text, completed:false}],
         };
         case "CLEAR_ALL":
-        return [];
+        return {
+          ...state,
+          todos: state.todos.filter((t) => {
+              return !t.completed
+          })
+        }
         case "TOGGLE_TODO":
             return{
             todos: state.todos.map((t, idx) => 

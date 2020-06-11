@@ -4,17 +4,12 @@ import {initialState, reducer} from './reducers/reducer';
 
 function ToDoList(){ 
 
-    const [{todos}, dispatch] = useReducer(reducer, {todos: [{
-        item: 'Learn about reducers',
-        completed: false,
-        id: 3892987589
-        
-    }]});
+    const [{todos}, dispatch] = useReducer(reducer, initialState);
     const [text, setText] = useState('');
 
-    // const handleChanges = e => {
-    //     setText(e.target.value);
-    //   };
+    const handleChanges = e => {
+        setText(e.target.value);
+      };
 
     // const resetAll = () => {
     //     setText(initialState)
